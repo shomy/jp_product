@@ -22,7 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# dm_sam
 # jp_product
-# jp_product
-# japan_guide_product
