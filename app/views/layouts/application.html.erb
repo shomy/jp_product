@@ -1,15 +1,132 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>DmSample</title>
+
+    <title>J_Guide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <link rel ="stylesheet" href="/assets/basic_parts.scss">
+    <link rel ="stylesheet" href="/assets/header_footer.scss">
+    <link rel ="stylesheet" href="/assets/wrapper.scss">
+    <link rel ="stylesheet" href="/assets/rooms.scss">
+    <link rel ="stylesheet" href="/assets/text.scss">
+    <link rel ="stylesheet" href="/assets/outline_info.scss">
+    <link rel ="stylesheet" href="/assets/btn_ill_parts.scss">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton|Monoton|Mountains+of+Christmas|Baloo+Bhaijaan|Baloo+Da|Dancing+Script|Kosugi+Maru|Open+Sans|Poiret+One|Questrial|Quicksand|Reem+Kufi|Righteous|Roboto:300i|Staatliches&display=swap">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/black/pace-theme-center-circle.min.css"/>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-2.2.3.min.js" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" %>
+    <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js" %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.8.1.min.js" %>
+    <%= javascript_include_tag "/assets/application.js" %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrap">
+
+      <% if user_signed_in? %>
+
+        <header>
+          <tr>
+            <% if @user.present? %>
+                <div class="dropdown-header">
+                  <ul class="responsive-menu">
+                    <i class="fas fa-bars"></i>
+                  </ul>
+                  <div class="dropdown-content-header">
+                    <td>< link_to 'Mypage', ginfo_path(@user.id), data: {"turbolinks" => false} %></td>
+                    <a href="#">Chat</a>
+                    <td>< link_to 'News', news_path@user.id) %></td>
+                    <td>< link_to 'Q&A', questions_path %></td>
+                    <td>< link_to "LOGOUT", users_sign_out_path %></td>
+                  </div>
+                </div>
+                <ul class="logo">
+                  <a href="/">
+                    <span>J</span>_Guide</a>
+                </ul>
+
+                <ul class="header-username">
+                  <span>Hello,
+                  </span><%= @user.name %></ul>
+                <ul class="mypagecommand">
+                  <i class="fas fa-user-edit fa-fw"></i>
+                  < link_to 'Mypage', ginfo_path(@user.id) , data: {"turbolinks" => false} %></ul>
+                <ul ul="ul" class="mypagecommand">
+                  <i class="fas fa-comments fa-fw"></i>
+                  <a href="#">Chat</a>
+                </ul>
+                <ul class="mypagecommand">
+                  <i class="fas fa-envelope-open fa-fw"></i>
+                  < link_to 'News', news_path(@user.id) %></ul>
+                <ul class="mypagecommand">
+                  <i class="fas fa-question-circle fa-fw"></i>
+                  < link_to 'Q&A', questions_path %></ul>
+                <ul class="mypagecommand"><%= link_to "LOGOUT", users_sign_out_path %></ul>
+
+              <% end %>
+
+          </tr>
+        </header>
+      <% end %>
+
+
+      <% if current_user == nil %>
+        <header>
+          <tr>
+            <div class="dropdown-header">
+              <ul class="responsive-menu">
+                <i class="fas fa-bars"></i>
+              </ul>
+              <div class="dropdown-content-header">
+                <%= link_to 'SIGNUP', new_user_registration_path, data: {"turbolinks" => false} %>
+                <%= link_to 'LOGIN', new_user_session_path %>
+              </div>
+            </div>
+            <ul class="logo">
+              <a href="/">
+                <span>J</span>_Guide</a>
+            </ul>
+            <ul class="login"><%= link_to 'LOGIN', new_user_session_path %></ul>
+          </tr>
+        </header>
+      <% end %>
+
+      <%= yield %>
+
+      <footer>
+        <ul class="logo">
+          <a href="/">
+            <span>J</span>_Guide</a>
+        </ul>
+        <img src="/assets/town.png" class="town-ill"></img>
+        <wrapper class="footer-wrapper">
+          <ul class="footer-list">< link_to 'HELP', outline_info_help_path %></ul>
+          <ul class="footer-list">< link_to 'CONTACT', outline_info_contact_path %></ul>
+          <ul class="footer-list">< link_to 'COMPANY', outline_info_company_path, data: {"turbolinks" => false} %></ul>
+          <ul class="footer-list">< link_to 'OUR PHILOSOPHY', outline_info_philosophy_path %></ul>
+          <ul class="footer-list">< link_to 'TERMS OF USE', outline_info_terms_path, data: {"turbolinks" => false} %></ul>
+          <ul class="footer-list">< link_to 'SPECIAL COMMERCIAL CODE', outline_info_code_path, data: {"turbolinks" => false} %></ul>
+          <ul class="footer-list">< link_to 'PRIVACY POLICY', outline_info_policy_path, data: {"turbolinks" => false} %></ul>
+        </wrapper>
+      </footer>
+
+    </div>
   </body>
+
 </html>

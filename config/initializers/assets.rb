@@ -12,3 +12,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w('header_footer.css')
+Rails.application.config.assets.precompile += %w('basic_parts.css')
+Rails.application.config.assets.precompile += %w('btn_ill_parts.css')
+Rails.application.config.assets.precompile += %w('media.css')
+Rails.application.config.assets.precompile += %w('text.css')
+Rails.application.config.assets.precompile += %w('wrapper.css')
+Rails.application.config.assets.precompile += %w('outline_info.css')

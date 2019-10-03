@@ -1,33 +1,51 @@
-<h2>Sign up</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class ="wrap">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <section class ="top-wrapper">
+   <ul class ="bxslider">
+     <li><img src ="/assets/topimage.jpg" width="100%" height="500px"/></li>
+     <li><img src ="/assets/green.jpg" width="100%" height="500px"/></li>
+     <li><img src ="/assets/river.jpg" width="100%" height="500px"/></li>
+   </ul>
+   <div class ="topfunc">
+     <h1 class ="lead">MAKE A FRIENDS & EN<span>J</span>OY <span>J</span>APANESE LOCAL</h1>
+     <h2 class ="lead4guide">Resgistraition is very easy & takes only a minute.<h2>
+   </div>
+  </section>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <section id= "regi-form" class='panel-group'>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :Please_enter_your_Name, :class => "myinfo-label" %>
+      <%= f.text_field :username, autofocus: true, :class =>"myinfo_basic" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+
+    <div class="field">
+      <%= f.label :Please_enter_your_Email, :class => "myinfo-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class =>"myinfo_basic" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Please_enter_your_Password, :class => "myinfo-label" %>
+      <% if @minimum_password_length %>
+      <em style ="color: #a4b3ef">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", :class =>"myinfo_basic" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Please_enter_your_Password_again, :class => "myinfo-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"myinfo_basic" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "SIGNUP",:class => "regi-btn" %>
+    </div>
+  <% end %>
+
+</div>

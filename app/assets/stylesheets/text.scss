@@ -1,0 +1,136 @@
+  @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin,latin-ext);
+
+  @font-face {
+     font-family: 'milea';
+     src: font-url('/assets/milea.ttf') format('truetype');
+  }
+
+  @font-face {
+     font-family: 'aveline';
+     src: font-url('/assets/aveline.ttf') format('truetype');
+  }
+
+  .lead, .btn-one, .circle span, .circle-b span, .circle_after span, .pointer, .area-search, .area-tag, h3 span, .footer-wrapper{
+    font-family: 'Poiret One', cursive, 'Kosugi Maru', sans-serif;
+  }
+
+  .one-message, .sb-line3.sb-left, .sb-line3.sb-right, .Q, .A, .radio-form {
+    font-family: 'Quicksand', sans-serif, 'Kosugi Maru', sans-serif;
+    color: rgb(164, 179, 239);
+  }
+
+  .lead {
+    width: 85%;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    letter-spacing: 20px;
+    line-height: 70px;
+    margin: 110px auto 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 9999;
+    }
+
+  .lead4guide {
+    width: 60%;
+    font-weight: lighter;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 11px;
+    margin: 0 auto;
+  }
+
+  .guide-area-tag {
+    width: 80%;
+    text-align: center;
+    font-size: 18px;
+    margin: 15px auto;
+  }
+
+  .guide-name {
+    position: relative;
+    font-size: 18px;
+    margin: 2px;
+  }
+
+  .review {
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  .one-message {
+    position: relative;
+    font-size: 15px;
+    font-weight: lighter;
+    width: 80%;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+
+  .face-message {
+    font-size: 13px;
+    color: rgb(161, 175, 204);
+  }
+
+  .myinfo-label {
+    font-size: 18px;
+    margin: 30px 10% 0;
+    display: block;
+    position: relative;
+    z-index: 10;
+    color: rgb(164, 179, 239);
+  }
+
+  .myinfo, .myinfo-big {
+    color: rgb(76, 114, 226)!important;
+  }
+
+  .news-headline {
+    text-align: left;
+    padding:7px;
+    margin: 0;
+    line-height: 35px;
+    font-weight: lighter;
+  }
+
+  .title-QA, .title-news, .title-company {
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 auto ;
+    color: rgba(8, 12, 214, 0.5);
+    border: solid 1px rgba(8, 12, 214, 0.5);
+    border-radius: 5em;
+    padding: 10px;
+  }
+
+  .Q_A, .company-info {
+    margin-bottom: 50px;
+  }
+
+  .Q, .A {
+    font-size: 20px;
+    text-align: left;
+    margin: 5px;
+    font-family: 'Poiret One', cursive, 'Kosugi Maru', sans-serif;
+  }
+
+  .Q {
+    color: rgb(46, 204, 113);
+    border-bottom: 1px solid #c1dccc;
+  }
+
+  .A {
+    font-size: 15px;
+  }
+
+  #en_jp {
+    text-align: right;
+    color: rgba(8, 12, 214, 0.5);
+    cursor: pointer;
+    font-size: 13px;
+    margin: 1em;
+  }
