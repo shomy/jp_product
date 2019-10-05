@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scene_picture1: MyString
+  scene_picture2: MyString
+  scene_picture3: MyString
+  scene_picture4: MyString
+  scene_picture5: MyString
+  scene_picture6: MyString
+  ginfo: one
+
+two:
+  scene_picture1: MyString
+  scene_picture2: MyString
+  scene_picture3: MyString
+  scene_picture4: MyString
+  scene_picture5: MyString
+  scene_picture6: MyString
+  ginfo: two

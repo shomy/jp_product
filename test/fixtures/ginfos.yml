@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  sex: MyString
+  tel_number: MyString
+  face_picture: MyString
+  hitokoto_shoukai: MyText
+  shoukaibun: MyText
+  user: one
+
+two:
+  age: 1
+  sex: MyString
+  tel_number: MyString
+  face_picture: MyString
+  hitokoto_shoukai: MyText
+  shoukaibun: MyText
+  user: two

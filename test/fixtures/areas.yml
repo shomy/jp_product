@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area1: MyString
+  area2: MyString
+  area3: MyString
+  area4: MyString
+  area5: MyString
+  area6: MyString
+  area7: MyString
+  area8: MyString
+  area9: MyString
+  area10: MyString
+  ginfo: one
+
+two:
+  area1: MyString
+  area2: MyString
+  area3: MyString
+  area4: MyString
+  area5: MyString
+  area6: MyString
+  area7: MyString
+  area8: MyString
+  area9: MyString
+  area10: MyString
+  ginfo: two
