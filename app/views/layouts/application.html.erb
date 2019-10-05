@@ -63,7 +63,7 @@
 
                 <ul class="header-username">
                   <span>Hello,
-                  </span><%= @user.name %></ul>
+                  </span><%= current_user.username %></ul>
                 <ul class="mypagecommand">
                   <i class="fas fa-user-edit fa-fw"></i>
                   < link_to 'Mypage', ginfo_path(@user.id) , data: {"turbolinks" => false} %></ul>

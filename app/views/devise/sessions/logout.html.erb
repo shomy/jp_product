@@ -1,0 +1,8 @@
+
+ <form name="Logout" method="post" action="/cgi-bin/Logout.cgi">
+  <section class = "logout-form">
+   <h4>Are you sure about logout?</h4>
+   <div class ="logout-btn"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></div>
+   <div class ="back"><a href="/">NOT NOW</a></div>
+  </section>
+ </form>

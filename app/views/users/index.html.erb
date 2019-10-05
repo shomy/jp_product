@@ -1,13 +1,66 @@
-<h1>DMサンプルアプリ</h1>
-<% if user_signed_in? %>
-<h2>Hello <%= current_user.username %></h2>
-  <% @users.each do |u| %>
-  <p><a href="/users/<%= u.id %>"><%= u.username %>さん</a></p>
-  <hr>
-  <% end %>
-  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "ユーザーを登録する", new_user_registration_path %>
-  <br>
-  <%= link_to "ログインする", new_user_session_path %>
-<% end %>
+<section class ="top-wrapper">
+ <ul class ="bxslider">
+   <li><img src ="assets/topimage.jpg" width="100%" height="500px"/></li>
+   <li><img src ="assets/green.jpg" width="100%" height="500px"/></li>
+   <li><img src ="assets/river.jpg" width="100%" height="500px"/></li>
+ </ul>
+ <div class ="topfunc">
+   <h1 class ="lead">EN<span>J</span>OY <span>J</span>APANESE LOCAL LIFE WITH GUIDES</h1>
+ </div>
+ <% if user_signed_in? %>
+   <div class ="btn-ones">
+     <btn class ="btn-one" ><%= link_to 'SIGNUP', new_user_registration_path, data: {"turbolinks" => false} %></btn>
+     <btn class ="btn-one"><%= link_to 'LOGIN' , new_user_session_path , data: {"turbolinks" => false} %></btn>
+     <div href ="" class ="circle"><span>ALL GUIDES FREE ONLY NOW</span></div>
+     </div>
+ <% else %>
+   <div href ="" class ="circle_after"><span>ALL GUIDES FREE ONLY NOW</span></div>
+ <% end %>
+</section>
+
+<section class = "guide-wrapper">
+   <div class="pointer">
+     <img src ="assets/bottle_b.png" class = "wine-ill"></img>
+     Local Guides Here!!
+   </div>
+   <div href="" class="area-search"><i class="fas fa-map-marker-alt fa-fw"></i> AREASEARCH</div>
+   <section class = "area-tag-wrapper">
+    <a href="" class = "area-tag">#Roppongi~ Azabu~ Akasaka</a>
+    <a href="" class = "area-tag">#Shinjyuku~ Ikebukuro</a>
+    <a href="" class = "area-tag">#Shibuya~ Ebis~ Meguro</a>
+    <a href="" class = "area-tag">#Ginza~Tokyo Station</a>
+    <a href="" class = "area-tag">#Akihabara~ Ueno~ Asakusa</a>
+    <a href="" class = "area-tag">#Others</a>
+   </section>
+
+   <h3><span><i class="fas fa-hat-wizard fa-fw"></i> ALL GUIDES</span></h3>
+
+   <i class="fas fa-chevron-right"></i>
+
+   <% if user_signed_in? %>
+   <article class ="guide-index">
+
+    <% @users.each do |u| %>
+
+      <% if current_user == u %>
+        <div style="display: none;"></div>
+      <% else %>
+
+      <div class ="guide">
+           <%= image_tag(@ginfo.face_picture ,:class => "face-icon") %>
+           <%= image_tag(@ginfo.picture ,:class => "photo") %>
+           <h4 class ="guide-name"><%= u.username %></h4>
+           <h4 class ="one-message"><%= @ginfo.hitokoto_shoukai %></h4>
+           <figcaption>
+            <p style="text-align: center;">ASK TO GUIDE</p>
+           </figcaption><a href="/users/<%= u.id %>"></a>
+      </div>
+
+      <% end %>
+    <% end %>
+   </article>
+   <% end %>
+   
+   <i class="fas fa-chevron-right"></i>
+
+</section >
