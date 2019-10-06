@@ -1,0 +1,2 @@
+module GinfosHelper
+end

@@ -4,4 +4,5 @@ class User < ApplicationRecord
          # ,:trackable
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :ginfos, dependent: :destroy
 end

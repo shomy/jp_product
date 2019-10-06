@@ -32,7 +32,7 @@ function resetradio() {
 }
 
 function resetcheckboxl() {
-    for (i = 1; i <= 3; i++) {
+    for (i = 1; i <= 4; i++) {
         document.getElementById('checkboxl' + i).checked = false;
     }
 }

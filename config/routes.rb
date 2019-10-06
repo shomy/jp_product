@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :rooms, :only => [:create, :show, :index]
 
   get '/users/sign_out' => 'users#logout'
+  get '/ginfos/new' => 'ginfos#new'
+  get '/ginfos/:id/edit' => 'ginfos#edit'
 end

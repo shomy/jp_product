@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
+
+
   def index
     @users=User.all
+    @ginfos=Ginfo.all
+
   end
 
   def show
+    @users=User.all.includes(:ginfos)
     @user=User.find(params[:id])
+
+
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
     if @user.id == current_user.id
@@ -27,6 +34,6 @@ class UsersController < ApplicationController
   end
 
   def logout
-    
+
   end
 end

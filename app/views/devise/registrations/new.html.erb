@@ -21,13 +21,13 @@
 
     <div class="field">
       <%= f.label :Please_enter_your_Name, :class => "myinfo-label" %>
-      <%= f.text_field :username, autofocus: true, :class =>"myinfo_basic" %>
+      <%= f.text_field :username, autofocus: true, :class =>"myinfo_basic", :placeholder =>'Name' %>
     </div>
 
 
     <div class="field">
       <%= f.label :Please_enter_your_Email, :class => "myinfo-label" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class =>"myinfo_basic" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class =>"myinfo_basic", :placeholder =>'Email' %>
     </div>
 
     <div class="field">
@@ -35,12 +35,12 @@
       <% if @minimum_password_length %>
       <em style ="color: #a4b3ef">(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", :class =>"myinfo_basic" %>
+      <%= f.password_field :password, autocomplete: "new-password", :class =>"myinfo_basic", :placeholder => 'Password' %>
     </div>
 
     <div class="field">
       <%= f.label :Please_enter_your_Password_again, :class => "myinfo-label" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"myinfo_basic" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"myinfo_basic", :placeholder => 'Password again' %>
     </div>
 
     <div class="actions">

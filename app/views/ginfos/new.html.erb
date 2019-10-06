@@ -1,0 +1,113 @@
+<div class ="wrap">
+
+  <section class ="top-wrapper">
+   <ul class ="bxslider">
+     <li><img src ="/assets/topimage.jpg" width="100%" height="500px"/></li>
+     <li><img src ="/assets/green.jpg" width="100%" height="500px"/></li>
+     <li><img src ="/assets/river.jpg" width="100%" height="500px"/></li>
+   </ul>
+   <div class ="topfunc">
+     <h1 class ="lead">MAKE A FRIENDS & EN<span>J</span>OY <span>J</span>APANESE LOCAL</h1>
+     <h2 class ="lead4guide">Resgistraition is very easy & takes only a minute.<h2>
+   </div>
+  </section>
+
+  <%= form_with url: ginfos_new_path do |f| %>
+  <section id= "regi-form" class='panel-group'>
+
+    <div class= "panel is-show">
+      <h3 style ="font-family: 'Poiret One', cursive;"><u><i class="fas fa-cog fa-fw"></i> BASIC INFO</u></h3>
+
+      <div class ="myinfo-label">Please enter your Phone Number</div>
+      <%= f.text_field :tel_number, :class => "myinfo_basic", :placeholder => 'Tel Number', :maxlength =>"15" %>
+
+      <div class ="myinfo-label">Please enter your Age</div>
+      <%= f.text_field :age, :class => "myinfo_basic_age", :placeholder => "Age", :maxlength =>"3" %>
+
+      <div class ="myinfo-label">Please choice your Sex</div>
+      <%= f.radio_button :sex, "男" , :class=> "radio_btn", :id => "rlabel1" %>
+      <%= f.label ' Men', :for => "rlabel1" %>
+      <%= f.radio_button :sex, "女", :class=> "radio_btn", :id => "rlabel2" %>
+      <%= f.label ' Women', :for => "rlabel2" %>
+      <%= f.radio_button :sex, "その他", :class=> "radio_btn", :id => "rlabel3" %>
+      <%= f.label ' Others', :for => "rlabel3" %>
+
+      <div class ="myinfo-label"><h4>Please upload your face picture.</h4></div>
+
+         <div id="face_img_field" onClick="$('#file').click()" >
+           <% if @ginfo.face_picture.present? %>
+            <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
+           <% else %>
+           <i class="fas fa-smile"></i>
+         </div>
+         <%= f.file_field :face_picture, class: "face_preview", style: "display:none;", id: "file"%>
+
+         <div class ="regi-group">
+           <li class ="regi is-active"><%= f.submit 'REGIST as a GEST', :id => 'regi-btn-guest' %></li>
+           <li class ="regi" id= "regi-btn-guide">REGIST as a GUIDE</li>
+         </div>
+
+
+
+    </div>
+
+    <div class ="panel">
+          <li class ="regi is-active" id ="back">Back</li>
+
+       <h3 style ="font-family: 'Poiret One', cursive;"><u><i class="fas fa-hat-wizard fa-fw"></i> GUIDE INFO</u></h3>
+       <!-- エリアdbの形変更、調整・相談要-->
+       <div class ="myinfo-label">Please select all area where you can guide.</div>
+       <section class ="area-tag-wrapper">
+       <%= f.radio_button :Roppongi_area, "Roppongi_area", :class=> "radio_btn", :id => "radio1" %>
+       <label for ="radio1">Roppongi~Azabu~Asakusa</label>
+       <%= f.radio_button :Shinjyuku_area, "Shinjyuku_area", :class=> "radio_btn", :id => "radio2" %>
+       <label for ="radio2">Shinjyuku~Ikebukuro</label>
+       <%= f.radio_button :Shibuya_area, "Shibuya_area", :class=> "radio_btn", :id => "radio3" %>
+       <label for ="radio3">Shibuya~Ebis~Meguro</label>
+       <%= f.radio_button :Ginza_area, "Ginza_area", :class=> "radio_btn", :id => "radio4" %>
+       <label for ="radio4">Ginza~Tokyo Station</label>
+       <%= f.radio_button :Akihabara_area, "Akihabara_area", :class=> "radio_btn", :id => "radio5" %>
+       <label for ="radio5">Akihabara~Ueno~Asakusa</label>
+       <%= f.radio_button :Others_area, "Others_area", :class=> "radio_btn", :id => "radio6" %>
+       <label for ="radio6">Others</label>
+       <h4><a href="javascript:void(0);" onclick="resetradio()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
+       </section>
+
+       <div class ="myinfo-label">Please select all language  you can speak.</div>
+       <%= f.check_box :use_language_list, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
+       <%= f.label 'English', :for => "checkboxl1" %>
+       <%= f.check_box :use_language_list, :value => "Jpanese", :class=> "radio_btn", :id => "checkboxl2" %>
+       <%= f.label 'Japanese', :for => "checkboxl2" %>
+       <%= f.check_box :use_language_list, :value => "Chinese", :class=> "radio_btn", :id => "checkboxl3" %>
+       <%= f.label 'Chinese', :for => "checkboxl3" %>
+       <%= f.check_box :use_language_list, :value => "Spanish", :class=> "radio_btn", :id => "checkboxl4" %>
+       <%= f.label 'Spanish', :for => "checkboxl4" %>
+
+       <%= f.text_field :use_language_list, :class =>"myinfo_basic", :placeholder =>'Other Language' %>
+       <h4><a href="javascript:void(0);" onclick="resetcheckboxl()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
+
+       <div class = "myinfo-label">One message(max 80 words)</div>
+       <%= f.text_field :hitokoto_shoukai, :class =>"myinfo", :placeholder =>'it will be shown in search page of guest.', :maxlength =>"80"%>
+
+       <div class ="myinfo-label">Introduction(max 700 words)</div>
+       <%= f.text_field :shoukaibun, :class =>'myinfo-big', :placeholder =>'Please fill in detailed location, recommended store, notes etc.', :maxlength =>"700" %>
+
+       <div class ="myinfo-label">Please upload photos of the spots you know well.</div>
+       <div class ="myscene-wrapper">
+         <div id="img_field" onClick="$('#files').click()" >
+           <% if @ginfo.scene_picture1.present? %>
+            <%= image_tag(@ginfo.scene_picture1 ,:id => "face_img_field") %>
+           <% else %>
+           <i class="fas fa-image"></i>
+
+         </div>
+         <%= f.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
+       </div>
+
+
+       <div><%= link_to f.submit 'Regist', :class => "regi-btn" %></div>
+
+    </div>
+
+  </section>
+  <% end %>

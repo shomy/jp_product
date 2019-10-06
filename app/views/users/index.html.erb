@@ -7,7 +7,7 @@
  <div class ="topfunc">
    <h1 class ="lead">EN<span>J</span>OY <span>J</span>APANESE LOCAL LIFE WITH GUIDES</h1>
  </div>
- <% if user_signed_in? %>
+ <% if !user_signed_in? %>
    <div class ="btn-ones">
      <btn class ="btn-one" ><%= link_to 'SIGNUP', new_user_registration_path, data: {"turbolinks" => false} %></btn>
      <btn class ="btn-one"><%= link_to 'LOGIN' , new_user_session_path , data: {"turbolinks" => false} %></btn>
@@ -37,30 +37,31 @@
 
    <i class="fas fa-chevron-right"></i>
 
-   <% if user_signed_in? %>
+
    <article class ="guide-index">
 
     <% @users.each do |u| %>
 
       <% if current_user == u %>
         <div style="display: none;"></div>
+
       <% else %>
-
       <div class ="guide">
-           <%= image_tag(@ginfo.face_picture ,:class => "face-icon") %>
-           <%= image_tag(@ginfo.picture ,:class => "photo") %>
-           <h4 class ="guide-name"><%= u.username %></h4>
-           <h4 class ="one-message"><%= @ginfo.hitokoto_shoukai %></h4>
-           <figcaption>
-            <p style="text-align: center;">ASK TO GUIDE</p>
-           </figcaption><a href="/users/<%= u.id %>"></a>
-      </div>
-
+        <% @ginfos.each do |ginfo| %>
+             <%= image_tag(ginfo.face_picture ,:class => "face-icon") %>
+             <%= image_tag(ginfo.scene_picture1 ,:class => "photo") %>
+             <h4 class ="guide-name"><%= u.username %></h4>
+             <h4 class ="one-message"><%= ginfo.hitokoto_shoukai %></h4>
+             <figcaption>
+              <p style="text-align: center;">ASK TO GUIDE</p>
+             </figcaption><a href="/users/<%= u.id %>"></a>
+        <% end %>
+      </div>  
       <% end %>
     <% end %>
    </article>
-   <% end %>
-   
+
+
    <i class="fas fa-chevron-right"></i>
 
 </section >

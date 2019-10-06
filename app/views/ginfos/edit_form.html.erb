@@ -1,0 +1,130 @@
+<div class ="wrap">
+
+  <div class ="tab-group">
+      <li class="tab is-active"><i class="fas fa-cog fa-fw"></i> BASIC INFO</li>
+      <li class="tab"><i class="fas fa-hat-wizard fa-fw"></i> INFO AS A GUIDE</li>
+  </div>
+
+  <div id="content" class='panel-group'>
+
+    <% if ginfo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(ginfo.errors.count, "error") %> prohibited this ginfo from being saved:</h2>
+
+        <ul>
+        <% ginfo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='panel is-show'>
+
+     <div class ="back"><%= link_to 'Back', @ginfo, data: {"turbolinks" => false} %></div>
+
+     <%= form_with(model: ginfo, local: true) do |form| %>
+
+      <div class ="myinfo-label">Please upload your face picture.</div>
+
+         <div id="face_img_field" onClick="$('#file').click()" >
+          <% if @ginfo.face_picture.present? %>
+           <%= image_tag(@ginfo.face_picture)%>
+           <% else %>
+           <i class="fas fa-smile"></i>
+           <% end %>
+         </div>
+         <%= form.file_field :face_picture, class: "face_preview", style: "display:none;", id: "file"%>
+
+
+      <div class ="myinfo-label">You can edit your Tel Number.</div>
+      <%= form.text_field :tel_number, :value => @ginfo.tel_number, :class => 'myinfo_basic', :placeholder => 'Tel Number', :maxlength =>"15" %>
+
+      <div class ="myinfo-label">You can edit your Age.</div><!-- 18歳以下は登録不可制御-->
+      <%= form.text_field :age, :value => @ginfo.age, :class => 'myinfo_basic_age', :placeholder => "Age", :maxlength =>"3" %>
+
+      <div class ="myinfo-label">You can edit your Sex.</div>
+      <%= form.radio_button :sex, "男" , :class=> "radio_btn", :id => "rlabel1" %>
+      <%= form.label ' Men', :for => "rlabel1" %>
+      <%= form.radio_button :sex, "女", :class=> "radio_btn", :id => "rlabel2" %>
+      <%= form.label ' Women', :for => "rlabel2" %>
+      <%= form.radio_button :sex, "その他", :class=> "radio_btn", :id => "rlabel3" %>
+      <%= form.label ' Others', :for => "rlabel3" %>
+
+      <div><%= form.submit :class => 'edit', :value => 'Update' %></div>
+     <% end %>
+    </div>
+
+   <div class='panel'>
+
+     <div class ="back"><%= link_to 'Back', @ginfo, data: {"turbolinks" => false} %></div>
+
+     <%= form_with(model: ginfo, local: true) do |form| %>
+
+     <div class ="myinfo-label">Please select all area where you can guide.</div>
+     <section class ="area-tag-wrapper">
+     <%= form.radio_button :Roppongi_area, "Roppongi_area", :class=> "radio_btn", :id => "radio1" %>
+     <label for ="radio1">Roppongi~Azabu~Asakusa</label>
+     <%= form.radio_button :Shinjyuku_area, "Shinjyuku_area", :class=> "radio_btn", :id => "radio2" %>
+     <label for ="radio2">Shinjyuku~Ikebukuro</label>
+     <%= form.radio_button :Shibuya_area, "Shibuya_area", :class=> "radio_btn", :id => "radio3" %>
+     <label for ="radio3">Shibuya~Ebis~Meguro</label>
+     <%= form.radio_button :Ginza_area, "Ginza_area", :class=> "radio_btn", :id => "radio4" %>
+     <label for ="radio4">Ginza~Tokyo Station</label>
+     <%= form.radio_button :Akihabara_area, "Akihabara_area", :class=> "radio_btn", :id => "radio5" %>
+     <label for ="radio5">Akihabara~Ueno~Asakusa</label>
+     <%= form.radio_button :Others_area, "Others_area", :class=> "radio_btn", :id => "radio6" %>
+     <label for ="radio6">Others</label>
+     <h4><a href="javascript:void(0);" onclick="resetradio()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
+     </section>
+
+       <div class ="myinfo-label">Please select all language  you can speak.</div>
+       <%= form.check_box :use_language_list, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
+       <%= form.label 'English', :for => "checkboxl1" %>
+       <%= form.check_box :use_language_list, :value => "Jpanese", :class=> "radio_btn", :id => "checkboxl2" %>
+       <%= form.label 'Japanese', :for => "checkboxl2" %>
+       <%= form.check_box :use_language_list, :value => "Chinese", :class=> "radio_btn", :id => "checkboxl3" %>
+       <%= form.label 'Chinese', :for => "checkboxl3" %>
+       <%= form.text_field :use_language_list, :class =>'myinfo', :placeholder =>'Other Language',:maxlength =>"50" %>
+       <h4><a href="javascript:void(0);" onclick="resetcheckboxl()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
+
+       <div class ="myinfo-label">One message(max 80 words)</div>
+       <%= form.text_field :hitokoto_shoukai, :value => @ginfo.hitokoto_shoukai, :class => 'myinfo', :placeholder => 'it will be shown in search page of guest', :maxlength =>"80" %>
+
+       <div class ="myinfo-label">Introduction(max 700 words)</div>
+       <%= form.text_field :shoukaibun, :value => @ginfo.shoukaibun, :class => 'myinfo-big', :placeholder => 'Please fill in detailed location, recommended store, notes etc.' , :maxlength =>"700" %>
+
+       <div class ="myinfo-label"><h4>Please upload photos of the spots you know well.</h4></div>
+
+       <div class ="myscene">
+         <div class ="myscene-wrapper">
+           <div id="img_field" onClick="$('#files').click()" >
+            <% if @ginfo.snene_picture1.present? %>
+             <%= image_tag(@ginfo.snene_picture1)%>
+             <% else %>
+             <i class="fas fa-image"></i>
+             <% end %>
+           </div>
+           <%= form.file_field :picture, class: "image", style: "display:none;", id: "files", :multiple => true %>
+
+         </div>
+         <div class ="myscene-wrapper">
+           <div id="img_field" onClick="$('#files1').click()" >
+            <% if @ginfo.snene_picture2.present? %>
+             <%= image_tag(@ginfo.snene_picture2)%>
+             <% else %>
+             <i class="fas fa-image"></i>
+             <% end %>
+           </div>
+           <%= form.file_field :picture1, class: "image", style: "display:none;", id: "files1", :multiple => true %>
+
+         </div>
+
+       </div>
+
+       <div><%= form.submit :class => 'edit', :value => 'Update' %></div>
+
+     <% end %>
+   </div>
+  </div>
+</div>

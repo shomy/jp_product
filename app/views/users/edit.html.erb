@@ -1,0 +1,16 @@
+<div id="content">
+
+  <div class ="myinfo-label">You can edit your E-mail address.</div>
+  <%= form.email_field :email, :class => 'myinfo_basic', :placeholder => 'E-mail' %>
+
+  <label class ="myinfo-label">You can edit  your Password.<br>Password must be a mixture of 8 alphanumeric characters&numbers.</label>
+  <%= form.password_field :password, value => current_user.name:class => 'myinfo_basic', :placeholder => 'Password' %>
+
+  <div class ="myinfo-label">Please enter your Password,again.</div>
+  <%= form.password_field :rpassword_confirmation, value => cuurent_user.email, :class => 'myinfo_basic', :placeholder => 'Password' %>
+
+  <div class ="myinfo-label">You can edit enter your Name.</div>
+  <%= form.text_field :name, :value => current_user.username, :class => 'myinfo_basic', :placeholder => 'Name', :maxlength =>"20" %>
+
+
+</div>

@@ -43,50 +43,65 @@
 
         <header>
           <tr>
-            <% if @user.present? %>
+
                 <div class="dropdown-header">
+
                   <ul class="responsive-menu">
                     <i class="fas fa-bars"></i>
                   </ul>
+
                   <div class="dropdown-content-header">
-                    <td>< link_to 'Mypage', ginfo_path(@user.id), data: {"turbolinks" => false} %></td>
+                    <td><%= link_to 'Mypage', user_path(current_user.id), data: {"turbolinks" => false} %></td>
                     <a href="#">Chat</a>
-                    <td>< link_to 'News', news_path@user.id) %></td>
-                    <td>< link_to 'Q&A', questions_path %></td>
-                    <td>< link_to "LOGOUT", users_sign_out_path %></td>
+                    <td><%= link_to 'News' %></td>
+                    <td><%= link_to 'Q&A' %></td>
+                    <td><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></td>
                   </div>
+
                 </div>
+
                 <ul class="logo">
                   <a href="/">
-                    <span>J</span>_Guide</a>
+                    <span>J</span>_Guide
+                  </a>
                 </ul>
 
                 <ul class="header-username">
                   <span>Hello,
-                  </span><%= current_user.username %></ul>
+                  </span><%= current_user.username %>
+                </ul>
+
                 <ul class="mypagecommand">
                   <i class="fas fa-user-edit fa-fw"></i>
-                  < link_to 'Mypage', ginfo_path(@user.id) , data: {"turbolinks" => false} %></ul>
+                  <%= link_to 'Mypage', user_path(current_user.id) , data: {"turbolinks" => false} %>
+                </ul>
+
                 <ul ul="ul" class="mypagecommand">
                   <i class="fas fa-comments fa-fw"></i>
                   <a href="#">Chat</a>
                 </ul>
+
                 <ul class="mypagecommand">
                   <i class="fas fa-envelope-open fa-fw"></i>
-                  < link_to 'News', news_path(@user.id) %></ul>
+                  <%= link_to 'News' %>
+                </ul>
+
                 <ul class="mypagecommand">
                   <i class="fas fa-question-circle fa-fw"></i>
-                  < link_to 'Q&A', questions_path %></ul>
-                <ul class="mypagecommand"><%= link_to "LOGOUT", users_sign_out_path %></ul>
+                  <%= link_to 'Q&A' %>
+                </ul>
 
-              <% end %>
+                <ul class="mypagecommand">
+                  <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+                </ul>
+
 
           </tr>
         </header>
       <% end %>
 
-
       <% if current_user == nil %>
+
         <header>
           <tr>
             <div class="dropdown-header">
@@ -98,11 +113,15 @@
                 <%= link_to 'LOGIN', new_user_session_path %>
               </div>
             </div>
+
             <ul class="logo">
               <a href="/">
                 <span>J</span>_Guide</a>
             </ul>
-            <ul class="login"><%= link_to 'LOGIN', new_user_session_path %></ul>
+
+            <ul class="login">
+              <%= link_to 'LOGIN', new_user_session_path %>
+            </ul>
           </tr>
         </header>
       <% end %>
