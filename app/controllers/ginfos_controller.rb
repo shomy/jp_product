@@ -1,7 +1,6 @@
 class GinfosController < ApplicationController
 
   def new
-    @ginfos=Ginfo.all
     @ginfo=Ginfo.new
   end
 
@@ -13,6 +12,22 @@ class GinfosController < ApplicationController
   end
 
   def create
-
+    @ginfo=Ginfo.new(ginfo_params)
+    respond_to do |f|
+      if @ginfo.save(ginfo_params)
+        format.html { redirect_to @ginfo, notice: 'Your Registration is finished!' }
+        format.json { render :root, status: :ok, location: @ginfo }
+      else
+        format.html { render :new }
+        format.json { render json: @ginfo.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  private
+
+  def ginfo_params
+    params.require(:user).permit(:user_id, :username, :email, :password)
+  end
+
 end

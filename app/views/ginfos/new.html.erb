@@ -12,7 +12,7 @@
    </div>
   </section>
 
-  <%= form_with url: ginfos_new_path do |f| %>
+  <%= form_with (model: @ginfo, local: true) do |f| %>
   <section id= "regi-form" class='panel-group'>
 
     <div class= "panel is-show">
@@ -35,11 +35,9 @@
       <div class ="myinfo-label"><h4>Please upload your face picture.</h4></div>
 
          <div id="face_img_field" onClick="$('#file').click()" >
-           <% if @ginfo.face_picture.present? %>
-            <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
-           <% else %>
            <i class="fas fa-smile"></i>
          </div>
+
          <%= f.file_field :face_picture, class: "face_preview", style: "display:none;", id: "file"%>
 
          <div class ="regi-group">
@@ -95,11 +93,7 @@
        <div class ="myinfo-label">Please upload photos of the spots you know well.</div>
        <div class ="myscene-wrapper">
          <div id="img_field" onClick="$('#files').click()" >
-           <% if @ginfo.scene_picture1.present? %>
-            <%= image_tag(@ginfo.scene_picture1 ,:id => "face_img_field") %>
-           <% else %>
            <i class="fas fa-image"></i>
-
          </div>
          <%= f.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
        </div>

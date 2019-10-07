@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
   }
 
   resources :users, :only => [:index, :show]
@@ -8,7 +9,12 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
 
-  get '/users/sign_out' => 'users#logout'
+  devise_scope :user do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
+
   get '/ginfos/new' => 'ginfos#new'
+  post '/ginfos/new' => 'ginfos#create'
   get '/ginfos/:id/edit' => 'ginfos#edit'
 end

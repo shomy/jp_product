@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
 
-
   def index
     @users=User.all
     @ginfos=Ginfo.all
@@ -33,7 +32,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def logout
-
-  end
+  
 end
