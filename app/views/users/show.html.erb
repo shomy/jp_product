@@ -61,25 +61,7 @@
         <div class="myinfo-wrapper">
 
           <div class="myinfo-label">Where you can guide</div>
-          <!-- DBが変わったため、調整必要 -->
-          <% if @ginfo.Roppongi_area.present? %>
-            <div class="myinfo_radio"><%= @ginfo.Roppongi_area %></div>
-          <% end %>
-          <% if @ginfo.Shinjyuku_area.present? %>
-            <div class="myinfo_radio"><%= @ginfo.Shinjyuku_area %></div>
-          <% end %>
-          <% if @ginfo.Shibuya_area.present? %>
-            <div class="myinfo_radio"><%= @ginfo.Shibuya_area %></div>
-          <% end %>
-          <% if @ginfo.Ginza_area.present? %>
-            <div class="myinfo_radio"><%= @ginfo.Ginza_area %></div>
-          <% end %>
-          <% if @ginfo.Akihabara_area.present? %>
-            <div class="myinfo_radio"><%= @ginfo.Akihabara_area %></div>
-          <% end %>
-          <% if @ginfo.Others_area.present? %>
-           <div class="myinfo_radio"><%= @ginfo.Others_area %></div>
-          <% end %>
+          
 
           <div class="myinfo-label">Language</div>
           <% if @ginfo.use_language_list.present? %>

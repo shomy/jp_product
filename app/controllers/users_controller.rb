@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @users=User.all.includes(:ginfos)
     @user=User.find(params[:id])
+    @ginfo=Ginfo.new(ginfo_params)
 
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
@@ -32,5 +33,8 @@ class UsersController < ApplicationController
     end
   end
 
-  
+  def ginfo_params
+    params.permit(:age, :sex, :tel_number, :face_picture, :user_id)
+  end
+
 end

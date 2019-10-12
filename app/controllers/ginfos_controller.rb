@@ -15,11 +15,11 @@ class GinfosController < ApplicationController
     @ginfo=Ginfo.new(ginfo_params)
     respond_to do |f|
       if @ginfo.save(ginfo_params)
-        format.html { redirect_to @ginfo, notice: 'Your Registration is finished!' }
-        format.json { render :root, status: :ok, location: @ginfo }
+        f.html { redirect_to :root, notice: 'Your Registration is finished!' }
+        f.json { render :root, status: :ok, location: @ginfo }
       else
-        format.html { render :new }
-        format.json { render json: @ginfo.errors, status: :unprocessable_entity }
+        f.html { render :new }
+        f.json { render json: @ginfo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -27,6 +27,6 @@ class GinfosController < ApplicationController
   private
 
   def ginfo_params
-    params.require(:user).permit(:id)
+    params.permit(:age, :sex, :tel_number, :face_picture, :user_id)
   end
 end
