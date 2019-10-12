@@ -12,7 +12,7 @@
    </div>
   </section>
 
-  <%= form_with url: new_ginfo_path, local: true  do |f| %>
+  <%= form_with(model: @ginfo, url: ginfos_path, local: true )do |f| %>
   <section id= "regi-form" class='panel-group'>
 
     <div class= "panel is-show">
