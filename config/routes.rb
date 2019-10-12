@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-
   resources :users, :only => [:index, :show]
   root "users#index"
   resources :messages, :only => [:create]
@@ -16,7 +15,6 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
 
-  get '/ginfos/new' => 'ginfos#new'
-  post '/ginfos/new' => 'ginfos#create'
-  get '/ginfos/:id/edit' => 'ginfos#edit'
+  resources :ginfos, :only => [:new, :edit, :create]
+
 end

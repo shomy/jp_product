@@ -27,7 +27,6 @@ class GinfosController < ApplicationController
   private
 
   def ginfo_params
-    params.require(:user).permit(:user_id, :username, :email, :password)
+    params.require(:user).permit(:id)
   end
-
 end
