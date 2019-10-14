@@ -17,4 +17,11 @@ Rails.application.routes.draw do
 
   resources :ginfos, :only => [:new, :edit, :create]
 
+  get '/outline_infos/company' => 'outline_infos#company'
+  get '/outline_infos/help' => 'outline_infos#help'
+  get '/outline_infos/code' => 'outline_infos#code'
+  get '/outline_infos/our_philosophy' => 'outline_infos#our_philosophy'
+  get '/outline_infos/policy' => 'outline_infos#policy'
+  get '/outline_infos/terms' => 'outline_infos#terms'
+  get '/outline_infos/contact' => 'outline_infos#contact'
 end
