@@ -48,6 +48,7 @@
           <div style="display: none;"></div>
 
         <% else %>
+          <% if @ginfo.presence %>
           <div class ="guide">
                  <%= image_tag(ginfo.face_picture, :class => "face-icon") %>
                  <h4 class ="guide-name"><%= u.username %></h4>
@@ -56,9 +57,11 @@
                   <p style="text-align: center;">ASK TO GUIDE</p>
                  </figcaption><a href="/users/<%= u.id %>"></a>
           </div>
+          <% end %>
         <% end %>
 
       <% else %>
+          <% if @ginfo.presence %>
           <div class ="guide">
                  <%= image_tag(ginfo.face_picture, :class => "face-icon") %>
                  <h4 class ="guide-name"><%= u.username %></h4>
@@ -66,7 +69,8 @@
                  <figcaption>
                   <p style="text-align: center;">ASK TO GUIDE</p>
                  </figcaption><a href="/users/<%= u.id %>"></a>
-          </div
+          </div>
+          <% end %>
       <% end %>
 
     <% end %>
