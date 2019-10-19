@@ -26,7 +26,7 @@ class GinfosController < ApplicationController
 
 private
   def ginfo_params
-    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture)
+    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai)
   end
 
     # def ginfo_params

@@ -8,14 +8,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users=User.all.includes(:ginfos)
-    @user=User.find(params[:id])
-<<<<<<< HEAD
+
+
     @ginfo=Ginfo.find_by(user_id:current_user.id)
-=======
+
     @ginfo=Ginfo.new(ginfo_params)
 
->>>>>>> cecf6ec54dae54d5b4b3af76ddd6c9f5f9245faf
+
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
