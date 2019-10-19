@@ -24,6 +24,8 @@
      Local Guides Here!!
    </div>
    <div href="" class="area-search"><i class="fas fa-map-marker-alt fa-fw"></i> AREASEARCH</div>
+
+   <!--
    <section class = "area-tag-wrapper">
     <a href="" class = "area-tag">#Roppongi~ Azabu~ Akasaka</a>
     <a href="" class = "area-tag">#Shinjyuku~ Ikebukuro</a>
@@ -32,6 +34,7 @@
     <a href="" class = "area-tag">#Akihabara~ Ueno~ Asakusa</a>
     <a href="" class = "area-tag">#Others</a>
    </section>
+   -->
 
    <h3><span><i class="fas fa-hat-wizard fa-fw"></i> ALL GUIDES</span></h3>
 
@@ -40,16 +43,19 @@
 
 <article class ="guide-index">
          <% @ginfos.each do |ginfo| %>
+
            <div class ="guide">
-              <%= image_tag ginfo.face_picture.url if ginfo.face_picture.length > 0  %>
+              <%= image_tag(ginfo.face_picture.url, :class => "face-icon")  %>
+              
               <h4 class ="guide-name"><%= ginfo.user.username %></h4>
               <h4 class ="one-message"><%= ginfo.hitokoto_shoukai %></h4>
               <figcaption>
                <p style="text-align: center;">ASK TO GUIDE</p>
               </figcaption><a href="/users/<%= ginfo.user.id %>"></a>
-           <div style="display: none;"></div>
+              <div style="display: none;"></div>
           </div>
-        <% end %>
+
+         <% end %>
 </article>
 
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :edit, :update]
   root "users#index"
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
 
-  resources :ginfos, :only => [:new, :edit, :create]
+  resources :ginfos, :only => [:new, :edit, :create, :update]
 
   get '/outline_infos/company' => 'outline_infos#company'
   get '/outline_infos/help' => 'outline_infos#help'

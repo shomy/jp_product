@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :only => [:show]
+  before_action :authenticate_user!, :only => [:show,:index]
 
   def index
-    @ginfos=Ginfo.all
-
+    @ginfos=Ginfo.all.includes(:scenes)
+    @scenes=Scene.all
+    @scene=Scene.find_by(ginfo_id:current_user.id)
   end
 
   def show

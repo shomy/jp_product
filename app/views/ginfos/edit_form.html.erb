@@ -61,34 +61,38 @@
 
      <%= form_with(model: ginfo, local: true) do |form| %>
 
-     <div class ="myinfo-label">Please select all area where you can guide.</div>
+     <!--
+    <div class ="myinfo-label">Please select all area where you can guide.</div>
      <section class ="area-tag-wrapper">
-     <%= form.radio_button :Roppongi_area, "Roppongi_area", :class=> "radio_btn", :id => "radio1" %>
+     <= form.radio_button :Roppongi_area, "Roppongi_area", :class=> "radio_btn", :id => "radio1" %>
      <label for ="radio1">Roppongi~Azabu~Asakusa</label>
-     <%= form.radio_button :Shinjyuku_area, "Shinjyuku_area", :class=> "radio_btn", :id => "radio2" %>
+     <= form.radio_button :Shinjyuku_area, "Shinjyuku_area", :class=> "radio_btn", :id => "radio2" %>
      <label for ="radio2">Shinjyuku~Ikebukuro</label>
-     <%= form.radio_button :Shibuya_area, "Shibuya_area", :class=> "radio_btn", :id => "radio3" %>
+     <= form.radio_button :Shibuya_area, "Shibuya_area", :class=> "radio_btn", :id => "radio3" %>
      <label for ="radio3">Shibuya~Ebis~Meguro</label>
-     <%= form.radio_button :Ginza_area, "Ginza_area", :class=> "radio_btn", :id => "radio4" %>
+     <= form.radio_button :Ginza_area, "Ginza_area", :class=> "radio_btn", :id => "radio4" %>
      <label for ="radio4">Ginza~Tokyo Station</label>
-     <%= form.radio_button :Akihabara_area, "Akihabara_area", :class=> "radio_btn", :id => "radio5" %>
+     <= form.radio_button :Akihabara_area, "Akihabara_area", :class=> "radio_btn", :id => "radio5" %>
      <label for ="radio5">Akihabara~Ueno~Asakusa</label>
-     <%= form.radio_button :Others_area, "Others_area", :class=> "radio_btn", :id => "radio6" %>
+     <= form.radio_button :Others_area, "Others_area", :class=> "radio_btn", :id => "radio6" %>
      <label for ="radio6">Others</label>
      <h4><a href="javascript:void(0);" onclick="resetradio()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
      </section>
+     -->
 
        <div class ="myinfo-label">Please select all language  you can speak.</div>
-       <%= form.check_box :use_language_list, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
+       <%= form.check_box :english, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
        <%= form.label 'English', :for => "checkboxl1" %>
-       <%= form.check_box :use_language_list, :value => "Jpanese", :class=> "radio_btn", :id => "checkboxl2" %>
+       <%= form.check_box :japanese, :value => "Jpanese", :class=> "radio_btn", :id => "checkboxl2" %>
        <%= form.label 'Japanese', :for => "checkboxl2" %>
-       <%= form.check_box :use_language_list, :value => "Chinese", :class=> "radio_btn", :id => "checkboxl3" %>
+       <%= form.check_box :Chinese, :value => "Chinese", :class=> "radio_btn", :id => "checkboxl3" %>
        <%= form.label 'Chinese', :for => "checkboxl3" %>
-       <%= form.text_field :use_language_list, :class =>'myinfo', :placeholder =>'Other Language',:maxlength =>"50" %>
+       <%= form.check_box :Spanish, :value => "Spanish", :class=> "radio_btn", :id => "checkboxl4" %>
+       <%= form.label 'Spanish', :for => "checkboxl4" %>
+       <%= form.text_field :sonota_language, :class =>'myinfo', :placeholder =>'Other Language',:maxlength =>"50" %>
        <h4><a href="javascript:void(0);" onclick="resetcheckboxl()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
 
-       <div class ="myinfo-label">One message(max 80 words)</div>
+       <div class ="myinfo-label">Where you can guide (max 80 words)</div>
        <%= form.text_field :hitokoto_shoukai, :value => @ginfo.hitokoto_shoukai, :class => 'myinfo', :placeholder => 'it will be shown in search page of guest', :maxlength =>"80" %>
 
        <div class ="myinfo-label">Introduction(max 700 words)</div>
@@ -99,24 +103,20 @@
        <div class ="myscene">
          <div class ="myscene-wrapper">
            <div id="img_field" onClick="$('#files').click()" >
-            <% if @ginfo.snene_picture1.present? %>
-             <%= image_tag(@ginfo.snene_picture1)%>
-             <% else %>
-             <i class="fas fa-image"></i>
-             <% end %>
+             <%= image_tag(@ginfo.scene.snene_picture1)%>
            </div>
            <%= form.file_field :picture, class: "image", style: "display:none;", id: "files", :multiple => true %>
 
          </div>
          <div class ="myscene-wrapper">
            <div id="img_field" onClick="$('#files1').click()" >
-            <% if @ginfo.snene_picture2.present? %>
-             <%= image_tag(@ginfo.snene_picture2)%>
+            <% if @ginfo.scene.snene_picture2.present? %>
+              <%= image_tag(@ginfo.snene_picture2)%>
              <% else %>
-             <i class="fas fa-image"></i>
+              <i class="fas fa-image"></i>
              <% end %>
            </div>
-           <%= form.file_field :picture1, class: "image", style: "display:none;", id: "files1", :multiple => true %>
+           <%= form.file_field :picture2, class: "image", style: "display:none;", id: "files1", :multiple => true %>
 
          </div>
 

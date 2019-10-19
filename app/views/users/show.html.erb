@@ -60,14 +60,7 @@
 
         <div class="myinfo-wrapper">
 
-          <div class="myinfo-label">Where you can guide</div>
-          
-
-          <div class="myinfo-label">Language</div>
-          <% if @ginfo.use_language_list.present? %>
-          <div class="myinfo_radio"><%= @ginfo.use_language_list %></div>
-          <% end %>
-          <div class="myinfo-label">One message</div>
+          <div class="myinfo-label">Where you can guide</div>s
           <div class="myinfo"><%= @ginfo.hitokoto_shoukai %></div>
 
           <div class="myinfo-label">Introduction</div>
@@ -75,15 +68,18 @@
 
           <div class="myinfo-label">Your pictures</div>
           <div class="myscene-wrapper">
-            <% @ginfos.secen_picture.each do |scene_picture| %>
+
             <div id="img_field">
-              <% if @ginfo.scene_picture.present? %>
-               <%= image_tag(@ginfo.picture)%>
+               <%= image_tag(@scene.scene_picture1)%>
+            </div>
+
+            <div id="img_field">
+              <% if scnen_picture2 present? %>
+               <%= image_tag(@scene.scene_picture2)%>
               <% else %>
                <i class="fas fa-image"></i>
-              <% end %>
             </div>
-            <% end %>
+
           </div>
 
         </div>

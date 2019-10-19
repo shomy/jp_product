@@ -4,7 +4,7 @@ class User < ApplicationRecord
          # ,:trackable
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
-  has_many :ginfos, dependent: :destroy
+  has_one :ginfos, dependent: :destroy
 
   validates :username, presence: true, length: { minimum: 1, maximum: 20 }
   validates :email, presence: true
