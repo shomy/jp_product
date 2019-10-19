@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @users=User.all.includes(:ginfos)
     @user=User.find(params[:id])
-
+    @ginfo=Ginfo.find_by(user_id:current_user.id)
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)

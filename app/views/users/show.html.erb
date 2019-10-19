@@ -16,8 +16,8 @@
 
         <div class="mypage-head">
           <div class="myface-wrapper">
-              <% if @ginfo.face_picture.present? %>
-               <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
+              <% if @ginfo.face_picture.length > 0 %>
+               <%= image_tag(@ginfo.face_picture.url ,:id => "face_img_field") %>
               <% else %>
                <i class="fas fa-smile"></i>
               <% end %>
@@ -111,6 +111,7 @@
       </section>
     </div>
 
+<!-- ここまで自分がユーザー -->
     <% else %>
     <div class="select-guide-form">
       <h2>ASK GUIDE TO <span class="select-name"><%= @user.username %>?</span></h2>

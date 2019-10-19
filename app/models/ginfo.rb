@@ -9,4 +9,7 @@ class Ginfo < ApplicationRecord
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 18 }
   validates :sex, presence: true
   validates :face_picture, presence: true
+
+  mount_uploader :face_picture, ImageUploader
+
 end

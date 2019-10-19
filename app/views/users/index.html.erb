@@ -48,8 +48,7 @@
       <% else %>
       <div class ="guide">
         <% @ginfos.each do |ginfo| %>
-             <%= image_tag(ginfo.face_picture ,:class => "face-icon") %>
-             <%= image_tag(ginfo.scene_picture1 ,:class => "photo") %>
+             <%= image_tag ginfo.face_picture.url if ginfo.face_picture.length > 0  %>
              <h4 class ="guide-name"><%= u.username %></h4>
              <h4 class ="one-message"><%= ginfo.hitokoto_shoukai %></h4>
              <figcaption>
