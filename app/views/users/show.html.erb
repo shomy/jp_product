@@ -3,121 +3,122 @@
 
     <% if @user.id == current_user.id %>
 
-    <div class ="tab-group">
-      <li class="tab is-active"><i class="fas fa-cog fa-fw"></i> BASIC INFO</li>
-      <li class="tab"><i class="fas fa-hat-wizard fa-fw"></i> INFO AS A GUIDE</li>
-    </div>
-
-    <div id="content" class='panel-group'>
-
-     <section class='panel is-show'>
-        <!-- ベーシックインフォのタブ -->
-        <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false} %></div>
-
-        <div class="mypage-head">
-          <div class="myface-wrapper">
-              <% if @ginfo.face_picture.length > 0 %>
-               <%= image_tag(@ginfo.face_picture.url ,:id => "face_img_field") %>
-              <% else %>
-               <i class="fas fa-smile"></i>
-              <% end %>
-          </div>
-        </div>
-
-        <img src="/assets/wine_w.png" class="bottle_w_l"></img>
-
-        <div class="myinfo-wrapper">
-
-          <div class="myinfo-label">Name</div>
-          <div class="myinfo_basic"><%= current_user.name %></div>
-
-          <div class="myinfo-label">Email</div>
-          <div class="myinfo_basic"><%= current_user.email %></div>
-
-          <div class="myinfo-label">Sex</div>
-          <div class="myinfo_basic_age"><%= @ginfo.sex %></div>
-
-          <div class="myinfo-label">Age</div>
-          <div class="myinfo_basic_age"><%= @ginfo.age %></div>
-
-          <div class="myinfo-label">Tel Number</div>
-          <div class="myinfo_basic"><%= @ginfo.tel_number %></div>
-
-        </div>
-
-        <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false}  %></div>
-        <label class="myinfo-label">
-          After the official launch, guide fee (charged guide)function & payment function will be added.
-        </label>
-
-      </section>
-
-      <section class='panel'>
-
-        <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false}  %></div>
-
-        <img src="/assets/wine_w.png" class="bottle-ill"></img>
-
-        <div class="myinfo-wrapper">
-
-          <div class="myinfo-label">Where you can guide</div>s
-          <div class="myinfo"><%= @ginfo.hitokoto_shoukai %></div>
-
-          <div class="myinfo-label">Introduction</div>
-          <div class="myinfo-big"><% @ginfo.shoukaibun %></div>
-
-          <div class="myinfo-label">Your pictures</div>
-          <div class="myscene-wrapper">
-
-            <div id="img_field">
-               <%= image_tag(@scene.scene_picture1)%>
-            </div>
-
-            <div id="img_field">
-              <% if scnen_picture2 present? %>
-               <%= image_tag(@scene.scene_picture2)%>
-              <% else %>
-               <i class="fas fa-image"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false} %></div>
-       <label class="myinfo-label">After the official launch, guide fee (charged guide)function & payment function will be added.</label>
-      </section>
-    </div>
-
-<!-- ここまで自分がユーザー -->
-    <% else %>
-    <div class="select-guide-form">
-      <h2>ASK GUIDE TO <span class="select-name"><%= @user.username %>?</span></h2>
-
-      <div class ="chat_info">
-        <% if @ginfo.face_picture.present? %>
-         <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
-        <% else %>
-         <i class="fas fa-smile"></i>
-        <% end %>
-
-        <h2 style ="border-bottom: 1px solid white;">age:</h2>
-        <h2 style ="border-bottom: 1px solid white;">sex:</h2>
-        <h2 style ="border-bottom: 1px solid white;">language:</h2>
-        <h2 style ="border-bottom: 1px solid white;">message:</h2>
-        <br><br>
-
-        <% if @isRoom == true %>
-            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-          <% else %>
-            <%= form_for @room do |f| %>
-              <%= fields_for @entry do |e| %>
-                <%= e.hidden_field :user_id, :value=> @user.id %>
-              <% end %>
-              <%= f.submit "CHAT", :class => 'chat-btn'%>
-            <% end %>
-          <% end %>
-        <% end %>
+      <div class ="tab-group">
+        <li class="tab is-active"><i class="fas fa-cog fa-fw"></i> BASIC INFO</li>
+        <li class="tab"><i class="fas fa-hat-wizard fa-fw"></i> INFO AS A GUIDE</li>
       </div>
-      <div class ="back"><%= link_to "BACK", users_path %></div>
-    </div>
+
+      <div id="content" class='panel-group'>
+
+        <section class='panel is-show'>
+        <!-- ベーシックインフォのタブ -->
+          <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false} %></div>
+
+          <div class="mypage-head">
+            <div class="myface-wrapper">
+                <% if @ginfo.face_picture.length > 0 %>
+                 <%= image_tag(@ginfo.face_picture.url ,:id => "face_img_field") %>
+                <% else %>
+                 <i class="fas fa-smile"></i>
+                <% end %>
+            </div>
+          </div>
+
+          <img src="/assets/wine_w.png" class="bottle_w_l"></img>
+
+          <div class="myinfo-wrapper">
+
+            <div class="myinfo-label">Name</div>
+            <div class="myinfo_basic"><%= current_user.name %></div>
+
+            <div class="myinfo-label">Email</div>
+            <div class="myinfo_basic"><%= current_user.email %></div>
+
+            <div class="myinfo-label">Sex</div>
+            <div class="myinfo_basic_age"><%= @ginfo.sex %></div>
+
+            <div class="myinfo-label">Age</div>
+            <div class="myinfo_basic_age"><%= @ginfo.age %></div>
+
+            <div class="myinfo-label">Tel Number</div>
+            <div class="myinfo_basic"><%= @ginfo.tel_number %></div>
+
+          </div>
+
+          <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false}  %></div>
+          <label class="myinfo-label">
+          After the official launch, guide fee (charged guide)function & payment function will be added.
+          </label>
+
+        </section>
+
+        <section class='panel'>
+
+          <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false}  %></div>
+
+          <img src="/assets/wine_w.png" class="bottle-ill"></img>
+
+          <div class="myinfo-wrapper">
+
+            <div class="myinfo-label">Where you can guide</div>s
+            <div class="myinfo"><%= @ginfo.hitokoto_shoukai %></div>
+
+            <div class="myinfo-label">Introduction</div>
+            <div class="myinfo-big"><% @ginfo.shoukaibun %></div>
+
+            <div class="myinfo-label">Your pictures</div>
+            <div class="myscene-wrapper">
+
+              <div id="img_field">
+                 <%= image_tag(@scene.scene_picture1.url)%>
+              </div>
+
+              <div id="img_field">
+                <% if scene_picture2 present? %>
+                 <%= image_tag(@scene.scene_picture2.url)%>
+                <% else %>
+                 <i class="fas fa-image"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="edit"><%= link_to 'Edit', ('/ginfos/:id/edit'), data: {"turbolinks" => false} %></div>
+          <label class="myinfo-label">After the official launch, guide fee (charged guide)function & payment function will be added.</label>
+        </section>
+      </div>
+
+      <!-- ここまで自分がユーザー -->
+
+    <% else %>
+      <div class="select-guide-form">
+        <h2>ASK GUIDE TO <span class="select-name"><%= @user.username %>?</span></h2>
+
+        <div class ="chat_info">
+          <% if @ginfo.face_picture.present? %>
+           <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
+          <% else %>
+           <i class="fas fa-smile"></i>
+          <% end %>
+
+          <h2 style ="border-bottom: 1px solid white;">age:</h2>
+          <h2 style ="border-bottom: 1px solid white;">sex:</h2>
+          <h2 style ="border-bottom: 1px solid white;">language:</h2>
+          <h2 style ="border-bottom: 1px solid white;">message:</h2>
+          <br><br>
+
+          <% if @isRoom == true %>
+              <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+          <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                <%= f.submit "CHAT", :class => 'chat-btn'%>
+              <% end %>
+          <% end %>
+
+        </div>
+        <div class ="back"><%= link_to "BACK", users_path %></div>
+      </div>
+    <% end %>

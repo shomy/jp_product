@@ -2,17 +2,19 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show,:index]
 
   def index
-    @ginfos=Ginfo.all.includes(:scenes)
-    @scenes=Scene.all
-    @scene=Scene.find_by(ginfo_id:current_user.id)
+    @ginfos=Ginfo.all
   end
 
   def show
     @users=User.all.includes(:ginfos)
     @user=User.find(params[:id])
 
+
+
     @ginfo=Ginfo.find_by(user_id:current_user.id)
     @ginfo=Ginfo.new(ginfo_params)
+
+
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
@@ -37,5 +39,7 @@ class UsersController < ApplicationController
   def ginfo_params
     params.permit(:age, :sex, :tel_number, :face_picture, :user_id)
   end
+
+
 
 end
