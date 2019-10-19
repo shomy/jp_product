@@ -2,19 +2,16 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
 
   def index
-    @users=User.all
     @ginfos=Ginfo.all
 
   end
 
   def show
-
+    @users=User.all.includes(:ginfos)
+    @user=User.find(params[:id])
 
     @ginfo=Ginfo.find_by(user_id:current_user.id)
-
     @ginfo=Ginfo.new(ginfo_params)
-
-
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
