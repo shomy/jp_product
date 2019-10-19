@@ -40,11 +40,12 @@
 
    <article class ="guide-index">
 
-    <% @users.each do |u| %>
+    <% @ginfos.each do |ginfo| %>
+      <% if user_signed_in? %>
 
-      <% if current_user == u %>
-        <div style="display: none;"></div>
+        <% if current_user == u %>
 
+<<<<<<< HEAD
       <% else %>
       <div class ="guide">
         <% @ginfos.each do |ginfo| %>
@@ -54,9 +55,36 @@
              <figcaption>
               <p style="text-align: center;">ASK TO GUIDE</p>
              </figcaption><a href="/users/<%= u.id %>"></a>
+=======
+          <div style="display: none;"></div>
+
+        <% else %>
+          <% if @ginfo.presence %>
+          <div class ="guide">
+                 <%= image_tag(ginfo.face_picture, :class => "face-icon") %>
+                 <h4 class ="guide-name"><%= u.username %></h4>
+                 <h4 class ="one-message"><%= ginfo.hitokoto_shoukai %></h4>
+                 <figcaption>
+                  <p style="text-align: center;">ASK TO GUIDE</p>
+                 </figcaption><a href="/users/<%= u.id %>"></a>
+          </div>
+          <% end %>
+>>>>>>> cecf6ec54dae54d5b4b3af76ddd6c9f5f9245faf
         <% end %>
-      </div>  
+
+      <% else %>
+          <% if @ginfo.presence %>
+          <div class ="guide">
+                 <%= image_tag(ginfo.face_picture, :class => "face-icon") %>
+                 <h4 class ="guide-name"><%= u.username %></h4>
+                 <h4 class ="one-message"><%= ginfo.hitokoto_shoukai %></h4>
+                 <figcaption>
+                  <p style="text-align: center;">ASK TO GUIDE</p>
+                 </figcaption><a href="/users/<%= u.id %>"></a>
+          </div>
+          <% end %>
       <% end %>
+
     <% end %>
    </article>
 

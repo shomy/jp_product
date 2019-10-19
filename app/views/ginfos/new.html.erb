@@ -17,7 +17,10 @@
 
     <div class= "panel is-show">
       <h3 style ="font-family: 'Poiret One', cursive;"><u><i class="fas fa-cog fa-fw"></i> BASIC INFO</u></h3>
+
       <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
       <div class ="myinfo-label">Please enter your Phone Number</div>
       <%= f.text_field :tel_number, :class => "myinfo_basic", :placeholder => 'Tel Number', :maxlength =>"15" %>
 
