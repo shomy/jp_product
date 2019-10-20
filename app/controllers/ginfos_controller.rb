@@ -2,7 +2,7 @@ class GinfosController < ApplicationController
 
   def new
     @ginfo=Ginfo.new
-    @ginfo.scenes.build
+
 
   end
 
@@ -16,6 +16,7 @@ class GinfosController < ApplicationController
   def create
 
     @ginfo=Ginfo.new(ginfo_params)
+    @scene=Scene.new(scene_params)
 
     respond_to do |f|
       if @ginfo.save
@@ -33,7 +34,11 @@ class GinfosController < ApplicationController
 
 private
   def ginfo_params
-    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scenes_attributes: [:scene_picture1])
+    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun)
+  end
+
+  def scene_params
+    params.require(:scene).permit(:scene_picture1)
   end
 
 
