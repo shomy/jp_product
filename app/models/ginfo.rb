@@ -1,8 +1,7 @@
 class Ginfo < ApplicationRecord
   belongs_to :user
   has_many :Languages, dependent: :destroy
-  has_many :scenes, dependent: :destroy
-  accepts_nested_attributes_for :scenes
+  has_one :scene, dependent: :destroy
   has_many :treats, dependent: :destroy
   has_many :areas, dependent: :destroy
 
@@ -12,5 +11,7 @@ class Ginfo < ApplicationRecord
   validates :face_picture, presence: true
 
   mount_uploader :face_picture, ImageUploader
+
+  accepts_nested_attributes_for :scene
 
 end
