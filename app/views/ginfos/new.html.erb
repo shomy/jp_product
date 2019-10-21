@@ -100,8 +100,8 @@
          <div id="img_field" onClick="$('#files').click()" >
            <i class="fas fa-image"></i>
          </div>
-         <%= f.fields_for :scenes do |i| %>
-         <%= i.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
+         <%= f.fields_for :scenes do |s| %>
+          <%= s.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
          <% end %>
        </div>
 
