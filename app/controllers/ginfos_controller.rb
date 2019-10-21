@@ -2,9 +2,7 @@ class GinfosController < ApplicationController
 
   def new
     @ginfo=Ginfo.new
-    @ginfo.build_scene
-
-
+    scene=@ginfo.build_scene
   end
 
   def edit
