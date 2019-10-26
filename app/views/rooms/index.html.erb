@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+<% if @messages.present? %>
+  <% @entries.each do |e| %>
+    <h4 class ="chat_name"><a href="/users/<%= e.user.id %>"><%= e.user.username%>さん</a></h4>
+  <% end %>
+<% end %>
+=======
  <% @rooms.each do |room| %>
       <%= room.id %>
  <% end %>
+>>>>>>> 7ef014d4629aa92d15967deb9aaf5ef70403cf09
