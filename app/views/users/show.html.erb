@@ -17,7 +17,7 @@
           <div class="mypage-head">
             <div class="myface-wrapper">
                 <% if @ginfo.face_picture.length > 0 %>
-                 <%= image_tag(@ginfo.face_picture.url ,:id => "face_img_field") %>
+                 <%= image_tag(@ginfo.face_picture.url ) %>
                 <% else %>
                  <i class="fas fa-smile"></i>
                 <% end %>
@@ -96,7 +96,7 @@
 
         <div class ="chat_info">
           <% if @ginfo.face_picture.present? %>
-           <%= image_tag(@ginfo.face_picture ,:id => "face_img_field") %>
+           <%= image_tag"#{@ginfo.face_picture}" %>
           <% else %>
            <i class="fas fa-smile"></i>
           <% end %>

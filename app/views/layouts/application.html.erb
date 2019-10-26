@@ -73,7 +73,11 @@
 
                 <ul class="mypagecommand">
                   <i class="fas fa-user-edit fa-fw"></i>
-                  <%= link_to 'Mypage', user_path(current_user.id) , data: {"turbolinks" => false} %>
+                  <% if @ginfo.id == current_user.id %>
+                  <%= link_to 'Mypage', user_path(current_user.id) , data: {"turbolinks" => false} %></td>
+                  <% else %>
+                  <td><%= link_to 'Mypage', '/ginfos/new', data: {"turbolinks" => false} %></td>
+                  <%end%>
                 </ul>
 
                 <ul ul="ul" class="mypagecommand">

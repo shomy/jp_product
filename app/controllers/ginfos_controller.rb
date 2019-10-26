@@ -14,7 +14,7 @@ class GinfosController < ApplicationController
 
   def create
 
-    @ginfo=Ginfo.new(ginfo_params.permit!)
+    @ginfo=Ginfo.new(ginfo_params)
     @ginfo.save
     respond_to do |f|
       if @ginfo.save
