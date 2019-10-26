@@ -70,14 +70,14 @@
             <div class="myscene-wrapper">
 
               <div id="img_field">
-                 <%= image_tag(@scene.scene_picture1.url)%>
+                <% if @ginfo.scene.scene_picture1.present? %>
+                  <%= image_tag(@ginfo.scene.scene_picture1) %>
+                <% end %>
               </div>
 
               <div id="img_field">
-                <% if scene_picture2 present? %>
-                 <%= image_tag(@scene.scene_picture2.url)%>
-                <% else %>
-                 <i class="fas fa-image"></i>
+                <% if @ginfo.scene.scene_picture2.present? %>
+                  <%= image_tag(@ginfo.scene.scene_picture2) %>
                 <% end %>
               </div>
             </div>
