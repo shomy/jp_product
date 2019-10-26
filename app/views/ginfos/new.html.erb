@@ -57,38 +57,6 @@
 
        <h3 style ="font-family: 'Poiret One', cursive;"><u><i class="fas fa-hat-wizard fa-fw"></i> GUIDE INFO</u></h3>
 
-       <!--
-       <div class ="myinfo-label">Please select all area where you can guide.</div>
-       <section class ="area-tag-wrapper">
-       <= f.radio_button :Roppongi_area, "Roppongi_area", :class=> "radio_btn", :id => "radio1" %>
-       <label for ="radio1">Roppongi~Azabu~Asakusa</label>
-       <= f.radio_button :Shinjyuku_area, "Shinjyuku_area", :class=> "radio_btn", :id => "radio2" %>
-       <label for ="radio2">Shinjyuku~Ikebukuro</label>
-       <= f.radio_button :Shibuya_area, "Shibuya_area", :class=> "radio_btn", :id => "radio3" %>
-       <label for ="radio3">Shibuya~Ebis~Meguro</label>
-       <= f.radio_button :Ginza_area, "Ginza_area", :class=> "radio_btn", :id => "radio4" %>
-       <label for ="radio4">Ginza~Tokyo Station</label>
-       <= f.radio_button :Akihabara_area, "Akihabara_area", :class=> "radio_btn", :id => "radio5" %>
-       <label for ="radio5">Akihabara~Ueno~Asakusa</label>
-       <= f.radio_button :Others_area, "Others_area", :class=> "radio_btn", :id => "radio6" %>
-       <label for ="radio6">Others</label>
-       <h4><a href="javascript:void(0);" onclick="resetradio()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
-       </section>
-       -->
-<!--
-       <div class ="myinfo-label">Please select all language  you can speak.</div>
-       <%= f.check_box :English, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
-       <%= f.label 'english', :for => "checkboxl1" %>
-       <%= f.check_box :Japanese, :value => "Jpanese", :class=> "radio_btn", :id => "checkboxl2" %>
-       <%= f.label 'japanese', :for => "checkboxl2" %>
-       <%= f.check_box :Chinese, :value => "Chinese", :class=> "radio_btn", :id => "checkboxl3" %>
-       <%= f.label 'Chinese', :for => "checkboxl3" %>
-       <%= f.check_box :Spabish, :value => "Spanish", :class=> "radio_btn", :id => "checkboxl4" %>
-       <%= f.label 'Spanish', :for => "checkboxl4" %>
-
-       <%= f.text_field :sonota_language, :class =>"myinfo_basic", :placeholder =>'Other Language' %>
-       <h4><a href="javascript:void(0);" onclick="resetcheckboxl()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
-       -->
        <div class = "myinfo-label">Please tell where you can guide(max 80 words)</div>
        <%= f.text_field :hitokoto_shoukai, :class =>"myinfo", :placeholder =>'it will be shown in search page of guest.', :maxlength =>"80"%>
 
