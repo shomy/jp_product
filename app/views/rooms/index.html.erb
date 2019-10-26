@@ -1,0 +1,5 @@
+<% if @messages.present? %>
+  <% @entries.each do |e| %>
+    <h4 class ="chat_name"><a href="/users/<%= e.user.id %>"><%= e.user.username%>さん</a></h4>
+  <% end %>
+<% end %>

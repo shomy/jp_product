@@ -1,6 +1,7 @@
 class GinfosController < ApplicationController
 
   def new
+    render layout: false
     @ginfo=Ginfo.new
     scene=@ginfo.build_scene
   end
