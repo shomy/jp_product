@@ -7,6 +7,9 @@ class RoomsController < ApplicationController
     redirect_to "/rooms/#{@room.id}"
   end
 
+  def index
+  end
+
   def show
     @room = Room.find(params[:id])
     if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?

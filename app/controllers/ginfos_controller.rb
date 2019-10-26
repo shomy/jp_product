@@ -2,7 +2,7 @@ class GinfosController < ApplicationController
 
   def new
     @ginfo=Ginfo.new
-    @ginfo.scenes.build
+    scene=@ginfo.build_scene
   end
 
   def edit
@@ -32,7 +32,7 @@ class GinfosController < ApplicationController
 
 private
   def ginfo_params
-    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scenes_attributes: [:ginfo_id,:scene_picture1])
+    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scene_attributes: [:id,:ginfo_id,:scene_picture1])
   end
 
     # def ginfo_params

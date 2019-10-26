@@ -101,10 +101,10 @@
            <i class="fas fa-smile"></i>
           <% end %>
 
-          <h2 style ="border-bottom: 1px solid white;">age:</h2>
-          <h2 style ="border-bottom: 1px solid white;">sex:</h2>
+          <h2 style ="border-bottom: 1px solid white;">age:<%= @ginfo.age %></h2>
+          <h2 style ="border-bottom: 1px solid white;">sex:<%= @ginfo.sex %></h2>
           <h2 style ="border-bottom: 1px solid white;">language:</h2>
-          <h2 style ="border-bottom: 1px solid white;">message:</h2>
+          <h2 style ="border-bottom: 1px solid white;">message:<%= @ginfo.hitokoto_shoukai %></h2>
           <br><br>
 
           <% if @isRoom == true %>

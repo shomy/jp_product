@@ -75,7 +75,7 @@
        <h4><a href="javascript:void(0);" onclick="resetradio()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
        </section>
        -->
-
+<!--
        <div class ="myinfo-label">Please select all language  you can speak.</div>
        <%= f.check_box :English, :value => "English", :class=> "radio_btn", :id => "checkboxl1" %>
        <%= f.label 'english', :for => "checkboxl1" %>
@@ -88,7 +88,7 @@
 
        <%= f.text_field :sonota_language, :class =>"myinfo_basic", :placeholder =>'Other Language' %>
        <h4><a href="javascript:void(0);" onclick="resetcheckboxl()"><i class="fas fa-times-circle fa-fw"></i> Reset</a></h4>
-
+       -->
        <div class = "myinfo-label">Please tell where you can guide(max 80 words)</div>
        <%= f.text_field :hitokoto_shoukai, :class =>"myinfo", :placeholder =>'it will be shown in search page of guest.', :maxlength =>"80"%>
 
@@ -100,8 +100,8 @@
          <div id="img_field" onClick="$('#files').click()" >
            <i class="fas fa-image"></i>
          </div>
-         <%= f.fields_for :scenes do |s| %>
-          <%= s.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
+         <%= f.fields_for :scene do |i| %>
+         <%= i.file_field :scene_picture1, class: "image", style: "display:none;", id: "files", :multiple => true %>
          <% end %>
        </div>
 
