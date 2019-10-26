@@ -1,26 +1,48 @@
-<h1>DM</h1>
+<div id ="content">
 
-<h4>参加者</h4>
-<% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.username%>さん</a></strong></h5>
-<% end %>
+  <div class ="chat_faces">
+    <div class ="face_img_chat"></div>
+    <img src ="/assets/wine_w.png" class ="chat_ill">
+    <div class ="face_img_chat"></div>
+  </div>
 
-<hr>
-<% if @messages.present? %>
-  <% @messages.each do |m| %>
-    <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.username %>さん</a></strong></small>
-    <hr>
+  <div class ="chat_names">
+
+      <% @entries.each do |e| %>
+        <h4 class ="chat_name"><a href="/users/<%= e.user.id %>"><%= e.user.username%>さん</a></h4>
+      <% end %>
+
+  </div>
+
+  <div class ="chat_room">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <% if m.user == current_user %>
+        <div class="speech-bubble">
+          <div class="sb-bubble sb-line3 sb-right">
+            <%= m.content %>
+          </div>
+        </div>
+      <% else %>
+        <div class="speech-bubble">
+          <div class="sb-bubble sb-line3 sb-left">
+            <%= m.content %>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+  <% else %>
   <% end %>
-<% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
-<% end %>
+  </div>
 
-<%= form_for @message do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
-<% end %>
+  <%= form_for @message do |f| %>
+    <%= f.text_field :content, :placeholder => "Please leave a message" , :size => 70, :class => "chat-box" %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <br>
+    <%= f.submit "POST", :class => "post-btn" %>
+  <% end %>
 
-<%= link_to "ユーザー一覧に戻る", users_path %>
+  <div class ="back"><%= link_to "Back", users_path %></div>
+
+</div>
