@@ -14,8 +14,8 @@ class GinfosController < ApplicationController
 
   def create
 
-    @ginfo=Ginfo.new(ginfo_params)
-
+    @ginfo=Ginfo.new(ginfo_params.permit!)
+    @ginfo.save
     respond_to do |f|
       if @ginfo.save
         f.html { redirect_to :root, notice: 'Your Registration is finished!' }
@@ -32,10 +32,8 @@ class GinfosController < ApplicationController
 
 private
   def ginfo_params
-    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scene_attributes: [:id,:ginfo_id,:scene_picture1])
+    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scene_attributes: [:scene_picture1])
   end
-
-
 
     # def ginfo_params
     #   params.fetch(:ginfo, {})
