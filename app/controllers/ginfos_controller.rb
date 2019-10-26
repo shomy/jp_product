@@ -14,7 +14,7 @@ class GinfosController < ApplicationController
 
   def create
 
-    @ginfo=Ginfo.new(ginfo_params.permit!)
+    @ginfo=Ginfo.new(ginfo_params)
     @ginfo.save
     respond_to do |f|
       if @ginfo.save
@@ -32,7 +32,7 @@ class GinfosController < ApplicationController
 
 private
   def ginfo_params
-    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scene_attributes: [:scene_picture1])
+    params.require(:ginfo).permit(:user_id,:age,:sex,:tel_number,:face_picture,:hitokoto_shoukai, :shoukaibun, scene_attributes: [:ginfo_id,:scene_picture1])
   end
 
     # def ginfo_params

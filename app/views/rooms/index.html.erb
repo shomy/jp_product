@@ -1,3 +1,11 @@
- <% @rooms.each do |room| %>
-      <%= room.id %>
+
+
+ <div id="content">
+
+
+<% @en.each do |en| %>
+   <a href="/rooms/<%= en.room_id %>"><%= en.user.username unless en.user==current_user %></a><br>
  <% end %>
+
+     <h1>dgcsdjk</h1>
+ </div>

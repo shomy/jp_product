@@ -8,8 +8,9 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @messages=Message.find_by(user_id:current_user.id)
-    @rooms=@messages.room_id
+    @entrys=Entry.where(user_id: current_user.id)
+    entry_pluck=@entrys.pluck(:room_id)
+    @en=Entry.where(room_id:entry_pluck)
   end
 
   def show
@@ -18,6 +19,9 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
+      en_user=Entry.where(room_id:@room.id)
+      en_user_id=en_user.pluck(:user_id)
+      @user=User.where(id:en_user_id)
     else
       redirect_back(fallback_location: root_path)
     end

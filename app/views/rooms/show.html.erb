@@ -1,5 +1,13 @@
 <div id ="content">
 
+
+
+      <% @user.each do |e| %>
+        <h4 class ="chat_name"><%= e.username%>さん</a></h4>
+      <% end %>
+
+
+
   <div class ="chat_faces">
     <div class ="face_img_chat"></div>
     <img src ="/assets/wine_w.png" class ="chat_ill">
