@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
 
 
-    @ginfo=Ginfo.find_by(user_id:current_user.id)
-    @ginfo=Ginfo.new(ginfo_params)
+    @ginfo=Ginfo.find_by(user_id:@user.id)
 
-
+    @scene = Scene.find_by(ginfo_id:@ginfo.id)
+    #@scene.scene_picture1 = '/assets/default.png'
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   def ginfo_params
     params.permit(:age, :sex, :tel_number, :face_picture, :user_id)

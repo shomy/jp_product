@@ -8,6 +8,8 @@ class RoomsController < ApplicationController
   end
 
   def index
+    @messages=Message.find_by(user_id:current_user.id)
+    @rooms=@messages.room_id
   end
 
   def show

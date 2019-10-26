@@ -70,11 +70,23 @@
             <div class="myscene-wrapper">
 
               <div id="img_field">
+<<<<<<< HEAD
 
               </div>
 
               <div id="img_field">
               
+=======
+                <% if @ginfo.scene.scene_picture1.present? %>
+                  <%= image_tag(@ginfo.scene.scene_picture1) %>
+                <% end %>
+              </div>
+
+              <div id="img_field">
+                <% if @ginfo.scene.scene_picture2.present? %>
+                  <%= image_tag(@ginfo.scene.scene_picture2) %>
+                <% end %>
+>>>>>>> 7ef014d4629aa92d15967deb9aaf5ef70403cf09
               </div>
             </div>
           </div>
